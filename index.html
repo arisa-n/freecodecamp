@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <script>
+            const Quotes=[
+                {
+                    quote: "Teach thy tongue to say, “I do not know,” and thous shalt progress.",
+                    author:"Maimonides" 
+                },
+                {
+                    quote: "Everything you’ve ever wanted is on the other side of fear",
+                    author:"Amelia Earhart" 
+                },
+                {
+                    quote: "The most common way people give up their power is by thinking they don’t have any.",
+                    author:"MaimonAlice Walkerides" 
+                },
+                {
+                    quote: "Build your own dreams, or someone else will hire you to build theirs.",
+                    author:"Farrah Gray" 
+                },
+                {
+                    quote: "Teach thy tongue to say, “I do not know,” and thous shalt progress.",
+                    author:"Albert Einstein" 
+                }
+            ]
+
+            window.onload = init 
+            function init(){
+                generateQuote()
+            }
+
+            function generateQuote(){
+
+                let size= Quotes.length
+                let randomI=Math.floor(Math.random()*size)
+                let randomQuotes= Quotes[randomI]
+                let newlink ="https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text="
+                let quoteFormat= randomQuotes.quote.replace(/ /g, "%20")
+                let authorFormat= randomQuotes.author.replace(/ /g, "%20")
+                newlink+=quoteFormat
+                newlink+=authorFormat
+
+                document.getElementById("text").innerText=Quotes[randomI].quote
+                document.getElementById("author").innerText=Quotes[randomI].author
+                document.getElementById("tweet-quote").href=newlink
+            }
+
+        </script>
+        <style>
+            *{
+                font-size: 1.5rem;
+                padding: 20px 20px 20px 20px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <wrapper id="quote-box">
+            <div id="text"></div>
+            <div id="author"></div>
+            <button id="new-quote" onClick={generateQuote()}>New Quote</button>
+            <a href="" target="_blank" id="tweet-quote">Tweet Quote</a>
+        </wrapper>
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"/>
+    </body>
+</html>
+
+
+   
